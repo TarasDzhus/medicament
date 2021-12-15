@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\customer",
+    "\\src\\app\\customer\\add-cus",
+    "\\src\\app\\employee-info\\add-em-in",
+    "\\src\\app\\medicament",
+    "\\src\\app\\medicament\\add-med"
+  ],
+  "SelectedNode": "\\src\\app\\medicament\\add-med\\add-med.component.css",
+  "PreviewInSolutionExplorer": false
+}

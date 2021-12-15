@@ -1,0 +1,103 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        (click)="addEmployeeInfo()" data-keyborad="false">
+  Add EmployeeInfo
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" (click)="closeClick()" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group row">
+          <label class="col-sm-2">Medicament MaritalStatus</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="employeeInfo.MaritalStatus"
+                   placeholder="Enter MaritalStatus">
+          </div>
+        </div>
+
+
+
+        <div class="form-group row">
+          <label class="col-sm-2">Medicament BirthDate</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="employeeInfo.BirthDate"
+                   placeholder="Enter BirthDate">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2">Medicament Address</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="employeeInfo.Address"
+                   placeholder="Enter Address">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2">Medicament Phone</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="employeeInfo.Phone"
+                   placeholder="Enter Phone">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2">Medicament EmployeeId</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="employeeInfo.EmployeeId"
+                   placeholder="Enter Full Name">
+          </div>
+        </div>
+
+        <button (click)="addEmployeeInfo()" *ngIf="employeeInfo.Id==0" class="btn btn-primary">
+          Add
+        </button>
+
+        <button (click)="updateEmployeeInfo()" *ngIf="employeeInfo.Id!=0" class="btn btn-primary">
+          Update
+        </button>
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>EmployeeInfo ID</th>
+      <th>MaritalStatus</th>
+      <th>BirthDate</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>EmployeeId</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dataItem of employeeInfoList">
+      <td>{{dataItem.Id}}</td>
+      <td>{{dataItem.MaritalStatus}}</td>
+      <td>{{dataItem.BirthDate}}</td>
+      <td>{{dataItem.Address}}</td>
+      <td>{{dataItem.Phone}}</td>
+      <td>{{dataItem.EmployeeId}}</td>
+      <td>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                (click)="editEmployeeInfo(dataItem)">
+          Edit
+        </button>
+        <button type="button" class="btn btn-primary" (click)="deleteClick(dataItem)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
